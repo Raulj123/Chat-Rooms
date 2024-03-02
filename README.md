@@ -1,17 +1,27 @@
-<h2 align="center">Chat Rooms 💬 </h2>
-> Create a chat room that allows others to join! Built with FastAPI and Svelte
-<h1 align="center">Welcome to doby-and-maya-web 👋</h1>
+<h1 align="center">Chat Rooms 💬 </h1>
+<p align="center">
+  
+  
+  <a href="https://github.com/Raulj123/Chat-Rooms/blob/main/LICENSE">
+    <img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-yellow.svg" target="_blank" />
+  </a>
+
+</p>
 <p>
 </p>
 
-> Website dedicated to ma dawgs
-<!-- ## Create a virtual environment
+> Create a chat room that allows others to join! Built with FastAPI and Svelte
+
+## ✨ Demo
+
+
+## Install
+#### Create and activate virtual environment
 ``` python -m venv venv ```
 
-## Activate the virtual environment
 ``` source venv/bin/activate ```
 
-## Install dependencies
+### Install dependencies
 ``` pip install -r requirements.txt ```
 
 
@@ -27,5 +37,5 @@ open up a new terminal
 
 ``` npm run dev ```
 
- -->
+
 
