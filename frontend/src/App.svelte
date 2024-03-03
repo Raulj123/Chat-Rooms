@@ -107,9 +107,9 @@
     </div>
   </div>
   <div class="main">
-    {#if users}
+    <!-- {#if users}
       users In this room: {users}
-    {/if}
+    {/if} -->
     {#if conn == true}
       <ul id="messages"></ul>
       <form class="send" action="" on:submit={sendMessage}>
