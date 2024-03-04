@@ -50,20 +50,20 @@
           console.log("WebSocket connection established.");
           conn = true;
         };
-        const api4 = "http://127.0.0.1:8000/users/" + roomId;
-        try {
-          const res = await fetch(api4, {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          });
-          const data = await res.json();
-          users = data.num_people;
-          console.log(users);
-        } catch (error) {
-          console.error("Error:", error);
-        }
+        // const api4 = "http://127.0.0.1:8000/users/" + roomId;
+        // try {
+        //   const res = await fetch(api4, {
+        //     method: "GET",
+        //     headers: {
+        //       "Content-Type": "application/json",
+        //     },
+        //   });
+        //   const data = await res.json();
+        //   users = data.num_people;
+        //   console.log(users);
+        // } catch (error) {
+        //   console.error("Error:", error);
+        // }
         ws.onmessage = function (event: MessageEvent) {
           var messages = document.getElementById("messages");
           if (messages !== null) {
@@ -107,9 +107,9 @@
     </div>
   </div>
   <div class="main">
-    <!-- {#if users}
+    {#if users}
       users In this room: {users}
-    {/if} -->
+    {/if}
     {#if conn == true}
       <ul id="messages"></ul>
       <form class="send" action="" on:submit={sendMessage}>

@@ -42,7 +42,8 @@ class ConnectionManager:
     
     async def num_of_users(self, room_id: int) -> int:
         if room_id in self.active_connections:
-            return len(self.active_connections[room_id])
+            user_count = len(self.active_connections.get(room_id, []))
+            await self.broadcast(f"User count updated: {user_count}", room_id)
         else:
             return 0 
            
@@ -62,12 +63,16 @@ async def join_room(websocket: WebSocket, room_id: int):
         return 
     await manager.connect(websocket, room_id)
     print(manager.active_connections)
+    await manager.num_of_users(room_id)
+
     try:
         while True:
             data = await websocket.receive_text()
             await manager.broadcast(data, room_id)
     except WebSocketDisconnect:
         manager.disconnect(websocket, room_id)
+        await manager.num_of_users(room_id)
+       
 
 @app.get("/users/{room_id}")
 async def get_users(room_id: int):
