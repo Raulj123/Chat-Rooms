@@ -14,7 +14,7 @@
 <p>
 </p>
 
-> Create a chat room that allows others to join! Built with FastAPI and Svelte
+> Create a private chat room that allows others to join! Built with FastAPI and Svelte
 
 ## ✨ Demo
 
