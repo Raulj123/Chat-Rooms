@@ -10,8 +10,10 @@
   function sendMessage(event: Event) {
     event.preventDefault();
     var input = document.getElementById("messageText") as HTMLInputElement;
-    if (input !== null) {
-      ws.send(input.value);
+    var alias = document.getElementById("messageAlias") as HTMLInputElement;
+    if (input !== null && alias !== null) {
+      let msg = alias.value + " " + input.value 
+      ws.send(msg);
       console.log(input.value);
       input.value = "";
       console.log(input.value);
@@ -114,6 +116,7 @@
       <ul id="messages"></ul>
       <form class="send" action="" on:submit={sendMessage}>
         <input type="text" id="messageText" autocomplete="off" />
+        <input type="text" id="messageAlias" placeholder="Enter your alias" autocomplete="off" />
         <button>Send</button>
       </form>
     {/if}
@@ -143,6 +146,9 @@
   }
   .send input {
     width: 200px;
+  }
+  .send #messageAlias {
+    width: 100px;
   }
   .container {
     display: flex;

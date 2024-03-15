@@ -36,9 +36,25 @@ class ConnectionManager:
         await websocket.send_text(message)
 
     async def broadcast(self, message: str, rooom_id: int):
+       new_message = ""
+       if message.startswith("User count"):
+                pass         
+       else:
+            message = message.split()
+            alias = message[0]
+            rest = " ".join(message[1:])
+            print(alias, rest)
+            new_message = alias + ": " + rest
+            print(f"Message: {new_message}")
+
        if rooom_id in self.active_connections:
            for connection in self.active_connections[rooom_id]:
-               await connection.send_text(message)
+               message = " ".join(message)
+               if message.startswith("User count"):
+                    await connection.send_text(message)
+               else:
+                   await connection.send_text(new_message)
+
     
     async def num_of_users(self, room_id: int) -> int:
         if room_id in self.active_connections:
